@@ -1,0 +1,25 @@
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 125ms linear;
+
+    &.is-highlighted {
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+.row {
+    --row-max-width: 67.125em;
+    max-width: var(--row-max-width);
+    margin-left: auto;
+    margin-right: auto;
+
+    &-slim {
+        --row-max-width: 42.5em;
+    }
+}
