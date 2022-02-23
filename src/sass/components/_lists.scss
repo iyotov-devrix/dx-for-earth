@@ -10,4 +10,29 @@
             display: inline;
         }
     }
+
+    a{
+        color: inherit;
+    }
+}
+
+.site-header{
+    .navlist{
+        font-family: var(--font-primary);
+
+        &-item{
+            margin: 0 2.75em;
+            font-weight: 700;
+        
+            @media screen and (max-width: 54.875em) {
+                margin: 0 1.5em;
+            }
+
+            @media screen and (max-width: $breakpoint-phones-big-max) {
+                display: block;
+                font-size: 1.25em;
+                margin: 0.75em auto;
+            }
+        }
+    }
 }

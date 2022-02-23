@@ -1,0 +1,190 @@
+.entry {
+    color: var(--color-primary);
+
+    &-title {
+        font-family: var(--font-headings);
+        font-weight: bold;
+        font-size: 1.625em;
+        line-height: 1.15;
+        text-transform: uppercase;
+    }
+
+    &-content,
+    &-author {
+        font-family: var(--font-secondary);
+        font-size: 1.125em;
+    }
+
+    &-tags {
+        position: relative;
+        padding-bottom: 1.5em;
+
+        &:after {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 0.75em;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: url(../images/line-2.png) repeat-x;
+            transform: skewX(-45deg);
+        }
+    }
+
+    &-tag {
+        font-family: var(--font-primary);
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        margin-right: 1.875em;
+
+        &.is-disabled {
+            opacity: 0.5;
+            margin-right: 2.625em;
+        }
+        
+        @media screen  and (max-width: $breakpoint-tablet-max){
+            margin-right: .5em;
+
+            &.is-disabled {
+                margin-right: .625em;
+            }
+        }
+    }
+
+    &-author-name {
+        font-weight: 700;
+    }
+}
+
+.entries-highlights {
+    .entries-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.625em;
+    }
+    .entry {
+        position: relative;
+
+        &-title {
+            text-align: center;
+            position: absolute;
+            max-width: 100%;
+            left: 0;
+            bottom: 0;
+
+            a {
+                display: inline-block;
+                box-sizing: border-box;
+                width: 100%;
+                padding: 0 1.25em;
+            }
+
+            span {
+                background: #FFF;
+                padding: 0 0.25em;
+                box-decoration-break: clone;
+            }
+
+            @media screen  and (max-width: $breakpoint-tablet-big-max){
+                font-size: 1.25em;
+                margin-bottom: 0.25em;
+                a {
+                    padding: 0 0.675em;
+                }
+            }
+        }
+    }
+
+    @media screen  and (max-width: $breakpoint-tablet-big-max){
+        overflow: hidden;
+        
+        .entries-container{
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-duration: 10s;
+            animation-name: slideShow;
+        }
+        
+        .entry {
+            flex: 0 0 100%;
+        }
+    }
+}
+
+.entries-readmore {
+    .entry {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.625em;
+        margin-top: 4em;
+
+        &-thumbnail {
+            position: relative;
+			
+			&-image{
+				box-shadow: 0 2.125em 0 -1.375em #000;
+			}
+            &-triangles {
+                width: 4.3125em;
+                transition: 0.25s all linear;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 5;
+
+                &-box {
+                    position: relative;
+                    background: #FFFFFF;
+                    width: 100%;
+                    height: 0;
+                    padding-bottom: 100%;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        background: #000;
+                        width: 100%;
+                        height: 100%;
+                        left: 1.375em;
+                        top: 1.375em;
+                        display: block;
+                        clip-path: polygon(0% 0%, 0% calc(100% - 1.375em), calc(100% -  1.375em) 0%);
+                    }
+
+                    &:after {
+                        content: '';
+
+                        // display: none;
+                        position: absolute;
+                        background: var(--color-highlight);
+                        width: 100%;
+                        height: 100%;
+                        left: 0;
+                        top: 0;
+                        clip-path: polygon(100% 100%, 100% 0%, 0% 100%);
+                    }
+                }
+            }
+
+			&:hover{
+				.entry-thumbnail-triangles {
+                    width: 5.25em;
+                }
+			}
+        }
+
+
+        @media screen  and (max-width: $breakpoint-tablet-max){
+            grid-template-columns: 1fr;
+
+            &-thumbnail {
+                grid-row-start:1
+            }
+        }
+    }
+}

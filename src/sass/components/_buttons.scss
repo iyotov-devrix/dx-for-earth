@@ -1,19 +1,67 @@
 .button {
-    --btn-bg: var(--color-secondary);
-    --btn-color: var(--color-primary);
-    background: #FFFFFF;
-    border: 3px solid;
-    border-color: var(--btn-color);
-    box-sizing: border-box;
-    box-shadow: 10px 10px 0px var(--btn-color);
-    display: inline-block;
-    padding: 1.25em;
-    min-width: 15.875em;
-    color: var(--btn-color);
-    text-transform: uppercase;
-    text-align: center;
+    --button-color-bg: var(--color-secondary);
+	--button-color-bg-hover: var(--color-secondary);
+	--button-color: var(--color-primary);
+	--button-padding: 0.875em 1.5em;
+	--button-border-color: var(--button-color-bg);
+	--button-border-radius: var(--global-border-radius);
+	
+	background: var(--button-color-bg);
+	border-radius: var(--button-border-radius);
+	border: 2px solid var(--button-border-color);
+	display: inline-block;
+    padding: var(--button-padding);
+	color: var(--button-color);
+	font-family: var(--font-primary);
+	font-weight: 700;
+    line-height: 1.25;
+	text-decoration: none;
+	opacity: 1;
+	transition: all 250ms ease;
+	cursor: pointer;
 
-    &.is-disabled {
-        --btn-color: var(--color-primary-disabled);
-    }
+	&:hover{
+		opacity: .5;
+	}
+		
+	svg{
+		fill: var(--button-color);
+	}
+	
+
+	&-highlighted{
+		box-shadow: 0.625em 0.625em 0 #FFE600;
+		margin-bottom: 0.625em;
+		margin-right: 1.25em;
+	}
+	
+	&-outline{
+		background-color: transparent;
+		border-color: var(--button-color);
+	}
+	
+	&-underline{
+		background-color: transparent;
+		border:transparent;
+		border-bottom: 2px solid var(--button-color);
+		padding:  0.5em 0 ;
+	}
+
+	&-arrow{
+		display: inline-flex;
+		align-items: center;
+		
+		svg{
+			margin-left: 1em;
+		}
+	}
+
+	&-icon{
+		padding: 0;
+		width: 2.625em;
+		height: 2.625em;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+	}
 }
